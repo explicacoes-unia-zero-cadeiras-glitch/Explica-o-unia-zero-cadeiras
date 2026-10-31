@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explica+ | Explicações académicas universitárias</title>
+<meta name="description" content="Explicações e acompanhamento académico para estudantes universitários. Evita cadeiras em atraso e prepara-te para testes e exames. Fala connosco pelo WhatsApp.">
+<meta name="theme-color" content="#0b1f4b">
+<meta property="og:title" content="Explica+ | Não deixes nenhuma cadeira para trás!">
+<meta property="og:description" content="Explicações focadas nas tuas necessidades para melhorares o teu desempenho académico.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_AO">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+/* ===== Variáveis ===== */
+:root{
+  --navy:#0b1f4b; --navy-2:#13306f; --green:#16a863; --green-dark:#0e8a4f;
+  --ink:#1b2540; --muted:#5b6785; --bg:#f5f8fd; --card:#fff; --line:#e3e9f4;
+  --radius:20px; --shadow:0 10px 30px rgba(11,31,75,.08);
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--navy);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+section{padding:76px 0}
+.lead-text{color:var(--muted);max-width:60ch}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+/* ===== Botões ===== */
+.btn{border-radius:14px;font-weight:700;padding:.8rem 1.4rem;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-green{background:var(--green);color:#fff;border:0;box-shadow:0 8px 20px rgba(22,168,99,.3)}
+.btn-green:hover{background:var(--green-dark);color:#fff}
+.btn-outline-light-2{border:2px solid rgba(255,255,255,.55);color:#fff}
+.btn-outline-light-2:hover{background:#fff;color:var(--navy)}
+
+/* ===== Navbar ===== */
+.navbar{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:.7rem 0}
+.brand{font-weight:800;color:var(--navy);font-size:1.35rem;display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.brand-mark{width:38px;height:38px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center}
+.brand b{color:var(--green)}
+.nav-link{font-weight:600;color:var(--ink)!important}
+.nav-link:hover{color:var(--green-dark)!important}
+
+/* ===== Hero ===== */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:70px 0 90px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:rgba(22,168,99,.14)}
+.hero h1{color:#fff;font-size:clamp(2.2rem,6vw,3.6rem)}
+.hero p{color:#d3def5;font-size:1.1rem;max-width:52ch}
+.hero-badge{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:.4rem .9rem;border-radius:99px;font-size:.9rem;margin-bottom:1.2rem}
+.hero-badge i{color:#5ee0a0}
+.hero svg{width:100%;max-width:460px;height:auto;position:relative;z-index:1}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* ===== Cabeçalhos de secção ===== */
+.sec-head{margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(1.7rem,4vw,2.4rem)}
+
+/* ===== Cartões de disciplinas ===== */
+#disciplinas{background:var(--bg)}
+.subject-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.6rem;height:100%;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.subject-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,31,75,.14);border-color:var(--green)}
+.icon-box{width:56px;height:56px;border-radius:16px;background:#e8f7ef;color:var(--green-dark);display:grid;place-items:center;font-size:1.6rem;margin-bottom:1rem}
+.subject-card h3{font-size:1.2rem}
+.subject-card p{color:var(--muted);font-size:.95rem;flex:1}
+.subject-card .btn{width:100%;padding:.65rem 1rem}
+
+/* ===== Como funciona ===== */
+.step{text-align:center;padding:1rem}
+.step-num{width:64px;height:64px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:1.5rem;display:grid;place-items:center;margin:0 auto 1rem;box-shadow:0 0 0 8px #e8f7ef}
+.step p{color:var(--muted);max-width:32ch;margin:.4rem auto 0}
+
+/* ===== Benefícios ===== */
+#beneficios{background:var(--bg)}
+.benefit{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem 1.3rem;box-shadow:var(--shadow);height:100%}
+.benefit i{font-size:1.5rem;color:var(--green);flex-shrink:0}
+.benefit h3{font-size:1.05rem;margin:0 0 .15rem}
+.benefit p{margin:0;color:var(--muted);font-size:.93rem}
+
+/* ===== CTA ===== */
+.cta{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:28px;padding:3.2rem 1.6rem;text-align:center;box-shadow:0 20px 50px rgba(11,31,75,.25)}
+.cta h2{color:#fff;font-size:clamp(1.5rem,4vw,2.2rem);max-width:24ch;margin:0 auto 1.5rem}
+
+/* ===== Rodapé ===== */
+footer{background:var(--navy);color:#c4d0ec;padding:56px 0 24px}
+footer h4{color:#fff;font-size:1.05rem}
+footer a{color:#c4d0ec;text-decoration:none}
+footer a:hover{color:#5ee0a0}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:.4rem}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;font-size:.9rem}
+
+/* ===== WhatsApp flutuante ===== */
+.wa-float{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:1.9rem;box-shadow:0 10px 25px rgba(0,0,0,.25);z-index:1050;transition:transform .2s}
+.wa-float:hover{transform:scale(1.08);color:#fff}
+
+/* ===== Animações de entrada ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .float{animation:none}
+  .btn,.subject-card{transition:none}
+}
+@media (max-width:575px){section{padding:56px 0}.hero{padding:44px 0 64px}}
+</style>
+</head>
+
+<body>
+<a class="visually-hidden-focusable position-absolute p-2 bg-white" href="#inicio">Saltar para o conteúdo</a>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg fixed-top" aria-label="Navegação principal">
+  <div class="container">
+    <a class="brand" href="#inicio"><span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>Explica<b>+</b></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+      <i class="bi bi-list fs-2"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#disciplinas">Disciplinas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contactos">Contactos</a></li>
+        <li class="nav-item mt-2 mt-lg-0"><a class="btn btn-green wa-link" data-msg="general" href="#" target="_blank" rel="noopener">Solicitar explicações</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+<!-- ===== HERO ===== -->
+<header class="hero" id="inicio" style="margin-top:62px">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="hero-badge"><i class="bi bi-patch-check-fill"></i> Explicações para estudantes universitários</span>
+        <h1>Não deixes nenhuma cadeira para trás!</h1>
+        <p class="mt-3">Aprende, prepara-te e melhora o teu desempenho académico com explicações focadas nas tuas necessidades.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#disciplinas" class="btn btn-green btn-lg">Ver disciplinas</a>
+          <a href="#" class="btn btn-outline-light-2 btn-lg wa-link" data-msg="general" target="_blank" rel="noopener">Falar connosco</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <!-- Ilustração: livros, capelo e computador -->
+        <svg class="float" viewBox="0 0 460 380" role="img" aria-label="Ilustração de livros, capelo de formatura e computador portátil">
+          <ellipse cx="230" cy="345" rx="190" ry="18" fill="rgba(0,0,0,.18)"/>
+          <rect x="40" y="250" width="250" height="40" rx="8" fill="#16a863"/>
+          <rect x="40" y="250" width="250" height="8" rx="4" fill="#5ee0a0"/>
+          <rect x="60" y="290" width="270" height="44" rx="8" fill="#ffffff"/>
+          <rect x="60" y="290" width="270" height="9" rx="4" fill="#cfd9ee"/>
+          <rect x="30" y="210" width="220" height="40" rx="8" fill="#4b7bec"/>
+          <rect x="30" y="210" width="220" height="8" rx="4" fill="#8db0ff"/>
+          <!-- portátil -->
+          <rect x="260" y="150" width="170" height="110" rx="10" fill="#0a1a3d" stroke="#fff" stroke-width="5"/>
+          <rect x="274" y="164" width="142" height="82" rx="4" fill="#13306f"/>
+          <path d="M290 228l24-26 20 16 30-36" fill="none" stroke="#5ee0a0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="245" y="260" width="200" height="12" rx="6" fill="#fff"/>
+          <!-- capelo -->
+          <polygon points="140,70 230,35 320,70 230,105" fill="#fff"/>
+          <path d="M175 90v38c0 12 110 12 110 0V90l-55 22z" fill="#cfd9ee"/>
+          <path d="M320 70v50" stroke="#16a863" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="320" cy="126" r="8" fill="#16a863"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== DISCIPLINAS ===== -->
+<section id="disciplinas" aria-labelledby="t-disc">
+  <div class="container">
+    <div class="sec-head text-center reveal">
+      <h2 id="t-disc">Disciplinas disponíveis</h2>
+      <p class="lead-text mx-auto">Escolhe a cadeira em que precisas de ajuda e fala connosco pelo WhatsApp. A mensagem já vai preenchida.</p>
+    </div>
+    <div class="row g-4" id="subjects-grid"><!-- cartões gerados por JavaScript --></div>
+  </div>
+</section>
+
+<!-- ===== COMO FUNCIONA ===== -->
+<section id="como-funciona" aria-labelledby="t-how">
+  <div class="container">
+    <div class="sec-head text-center reveal">
+      <h2 id="t-how">Como funciona?</h2>
+      <p class="lead-text mx-auto">Três passos simples para começares a preparar-te.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal"><div class="step"><div class="step-num">1</div><h3 class="h5">Escolhe a disciplina</h3><p>Escolhe a disciplina que pretendes estudar.</p></div></div>
+      <div class="col-md-4 reveal"><div class="step"><div class="step-num">2</div><h3 class="h5">Contacta pelo WhatsApp</h3><p>Entra em contacto pelo WhatsApp.</p></div></div>
+      <div class="col-md-4 reveal"><div class="step"><div class="step-num">3</div><h3 class="h5">Começa a preparar-te</h3><p>Recebe informações sobre as explicações e começa a preparar-te.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFÍCIOS ===== -->
+<section id="beneficios" aria-labelledby="t-ben">
+  <div class="container">
+    <div class="sec-head text-center reveal">
+      <h2 id="t-ben">O que ganhas com as explicações</h2>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4 reveal"><div class="benefit"><i class="bi bi-lightbulb-fill"></i><div><h3>Melhor compreensão</h3><p>Entende as matérias com explicações claras e focadas.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="benefit"><i class="bi bi-pencil-square"></i><div><h3>Exercícios práticos</h3><p>Resolução de exercícios para fixar a matéria.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="benefit"><i class="bi bi-journal-check"></i><div><h3>Testes e exames</h3><p>Preparação para chegares mais seguro às avaliações.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="benefit"><i class="bi bi-person-check-fill"></i><div><h3>Acompanhamento académico</h3><p>Apoio ao longo do teu percurso nas disciplinas.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="benefit"><i class="bi bi-speedometer2"></i><div><h3>Aprendizagem ao teu ritmo</h3><p>Avança com o ritmo de que precisas.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section aria-label="Chamada para ação">
+  <div class="container">
+    <div class="cta reveal">
+      <h2>Uma cadeira em atraso pode custar-te mais do que imaginas. Começa a preparar-te hoje!</h2>
+      <a href="#" class="btn btn-green btn-lg wa-link" data-msg="general" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>Solicitar explicações pelo WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== RODAPÉ ===== -->
+<footer id="contactos">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <a class="brand text-white mb-2" href="#inicio"><span class="brand-mark" style="background:var(--green)"><i class="bi bi-mortarboard-fill"></i></span>Explica<b>+</b></a>
+        <p>Explicações e acompanhamento académico para estudantes universitários que querem evitar cadeiras em atraso.</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#disciplinas">Disciplinas</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a class="wa-link" data-msg="general" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>WhatsApp: 937 801 363</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy text-center">&copy; <span id="year"></span> Explica+. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<!-- Botão flutuante WhatsApp -->
+<a class="wa-float wa-link" data-msg="general" href="#" target="_blank" rel="noopener" aria-label="Falar connosco no WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ===== Configuração ===== */
+  var WHATSAPP_NUMBER = '244937801363'; // formato internacional de Angola
+
+  /* ===== Disciplinas: nome, ícone e descrição ===== */
+  var subjects = [
+    { name: 'Análise Matemática', icon: 'bi-graph-up-arrow', desc: 'Limites, derivadas, integrais e séries, com foco na resolução de exercícios.' },
+    { name: 'Física', icon: 'bi-lightning-charge-fill', desc: 'Conceitos, fórmulas e problemas para compreender os fenómenos físicos.' },
+    { name: 'Introdução à Programação', icon: 'bi-code-slash', desc: 'Primeiros passos em programação: variáveis, condições, ciclos e funções.' },
+    { name: 'A.L.G.A.', icon: 'bi-grid-3x3-gap-fill', desc: 'Matrizes, sistemas de equações, vetores e espaços vetoriais.' },
+    { name: 'Introdução à Informática', icon: 'bi-pc-display', desc: 'Fundamentos de computadores, sistemas, redes e ferramentas digitais.' },
+    { name: 'M.I.C.', icon: 'bi-cpu-fill', desc: 'Apoio na compreensão e na resolução de exercícios da disciplina.' },
+    { name: 'Computação Numérica', icon: 'bi-calculator-fill', desc: 'Métodos numéricos para resolver problemas matemáticos por computador.' },
+    { name: 'Microprocessador', icon: 'bi-motherboard-fill', desc: 'Arquitetura, registos, instruções e funcionamento de microprocessadores.' },
+    { name: 'Lógica de programação', icon: 'bi-diagram-3-fill', desc: 'Raciocínio lógico, algoritmos e fluxogramas para resolver problemas.' }
+  ];
+
+  /* ===== Gera o link do WhatsApp com mensagem codificada ===== */
+  function waLink(message) {
+    return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+  }
+  function subjectMessage(name) {
+    return 'Olá! Tenho interesse em receber explicações de ' + name + '. Gostaria de obter mais informações.';
+  }
+  var generalMessage = 'Olá! Tenho interesse em receber explicações. Gostaria de obter mais informações.';
+
+  /* ===== Cartões das disciplinas ===== */
+  var grid = document.getElementById('subjects-grid');
+  subjects.forEach(function (s) {
+    var col = document.createElement('div');
+    col.className = 'col-12 col-sm-6 col-lg-4 reveal';
+    col.innerHTML =
+      '<article class="subject-card">' +
+        '<div class="icon-box" aria-hidden="true"><i class="bi ' + s.icon + '"></i></div>' +
+        '<h3>' + s.name + '</h3>' +
+        '<p>' + s.desc + '</p>' +
+        '<a class="btn btn-green" target="_blank" rel="noopener" href="' + waLink(subjectMessage(s.name)) + '" ' +
+        'aria-label="Quero explicações de ' + s.name + '"><i class="bi bi-whatsapp me-2"></i>Quero explicações</a>' +
+      '</article>';
+    grid.appendChild(col);
+  });
+
+  /* ===== Botões gerais de contacto ===== */
+  document.querySelectorAll('.wa-link[data-msg="general"]').forEach(function (a) {
+    a.href = waLink(generalMessage);
+  });
+
+  /* ===== Fechar menu mobile ao clicar num link ===== */
+  document.querySelectorAll('#menu a.nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var menu = document.getElementById('menu');
+      if (menu.classList.contains('show') && window.bootstrap) {
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      }
+    });
+  });
+
+  /* ===== Animações ao aparecer ===== */
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('show'); });
+  }
+
+  /* ===== Ano automático no rodapé ===== */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
